@@ -1,0 +1,17 @@
+<h1><%= @user.name %>'s Recipes</h1>
+<% @user.recipes.each do |recipe| %>
+  <h3><%= recipe.name %><h3>
+  <h4>Ingredients: </h4>
+  <% if recipe.ingredients.length > 0 %>
+  <ul>
+    <% recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient.amount %> <%= ingredient.name %></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>This recipe is missing an ingredient list</p>
+  <% end %>
+  <h4>Instructions: </h4>
+  <p><%= recipe.instructions %></p>
+<% end %>
+<%= link_to 'All Users', users_path %>
