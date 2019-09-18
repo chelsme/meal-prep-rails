@@ -36,7 +36,7 @@ class ShoppingListsController < ApplicationController
 
   private
   def shopping_list_params
-    params.require(:shopping_list).permit(:name, :password, :password_confirmation)
+    params.require(:shopping_list).permit(:name)
   end
 
   def find_shopping_list

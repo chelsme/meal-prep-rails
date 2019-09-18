@@ -36,7 +36,7 @@ class IngredientsController < ApplicationController
 
   private
   def ingredient_params
-    params.require(:ingredient).permit(:name, :password, :password_confirmation)
+    params.require(:ingredient).permit(:name, :amount)
   end
 
   def find_ingredient

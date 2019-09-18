@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
-    render json: @recipes
+    render json: @recipes, include: '**'
   end
 
   def show
     @recipe = find_recipe
-    render json: @recipe
+    render json: @recipe, include: '**'
   end
 
   def new
@@ -36,7 +36,7 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :password, :password_confirmation)
+    params.require(:recipe).permit(:name, :instructions, :time)
   end
 
   def find_recipe
