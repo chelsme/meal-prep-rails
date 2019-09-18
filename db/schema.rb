@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2019_09_05_203338) do
   create_table "groceries", force: :cascade do |t|
     t.string "name"
     t.string "quantity"
-    t.bigint "user_id", null: false
+    t.bigint "shopping_list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_groceries_on_user_id"
+    t.index ["shopping_list_id"], name: "index_groceries_on_shopping_list_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_09_05_203338) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "groceries", "users"
+  add_foreign_key "groceries", "shopping_lists"
   add_foreign_key "ingredients", "recipes"
   add_foreign_key "recipes", "users"
   add_foreign_key "shopping_lists", "users"
