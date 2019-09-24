@@ -20,12 +20,14 @@ class ShoppingListsController < ApplicationController
   end
   
   def edit
-    @shopping_list = ShoppingList.update(shopping_list_params)
+    @shopping_list = find_shopping_list
+    @shoppingList.update(shopping_list_params)
     render json: @shopping_list
   end
 
   def update
-    @shopping_list = ShoppingList.update(shopping_list_params)
+    @shopping_list = find_shopping_list
+    @shoppingList.update(shopping_list_params)
     render json: @shopping_list
   end
 

@@ -20,12 +20,14 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.update(user_params)
+    @user = find_user
+    @user.update(user_params)
     render json: @user
   end
 
   def update
-    @user = User.update(user_params)
+    @user = find_user
+    @user.update(user_params)
     render json: @user
   end
 

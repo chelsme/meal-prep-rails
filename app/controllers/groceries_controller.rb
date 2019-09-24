@@ -20,12 +20,14 @@ class GroceriesController < ApplicationController
   end
   
   def edit
-    @grocery = Grocery.update(grocery_params)
+    @grocery = find_grocery
+    @grocery.update(grocery_params)
     render json: @grocery
   end
 
   def update
-    @grocery = Grocery.update(grocery_params)
+    @grocery = find_grocery
+    @grocery.update(grocery_params)
     render json: @grocery
   end
 

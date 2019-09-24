@@ -20,12 +20,14 @@ class IngredientsController < ApplicationController
   end
   
   def edit
-    @ingredient = Ingredient.update(ingredient_params)
+    @ingredient = find_ingredient
+    @ingredient.update(ingredient_params)
     render json: @ingredient
   end
 
   def update
-    @ingredient = Ingredient.update(ingredient_params)
+    @ingredient = find_ingredient
+    @ingredient.update(ingredient_params)
     render json: @ingredient
   end
 

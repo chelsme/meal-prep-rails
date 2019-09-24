@@ -20,12 +20,14 @@ class RecipesController < ApplicationController
   end
   
   def edit
-    @recipe = Recipe.update(recipe_params)
+    @recipe = find_recipe
+    @recipe.update(recipe_params)
     render json: @recipe
   end
 
   def update
-    @recipe = Recipe.update(recipe_params)
+    @recipe = find_recipe
+    @recipe.update(recipe_params)
     render json: @recipe
   end
 
@@ -36,7 +38,7 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :instructions, :time)
+    params.require(:recipe).permit(:id, :name, :instructions, :time)
   end
 
   def find_recipe
