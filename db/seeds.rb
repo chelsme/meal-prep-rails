@@ -19,6 +19,10 @@ allison = User.create(name: "Allison", password: "boba", password_confirmation: 
 eddy = User.create(name: "Eddy", password: "mustard", password_confirmation: "mustard")
 devin = User.create(name: "Devin", password: "pecan", password_confirmation: "pecan")
 rocky = User.create(name: "Rocketh", password: "bacon", password_confirmation: "bacon")
+adam = User.create(name: "Adam", password: "bacon", password_confirmation: "bacon")
+tany = User.create(name: "Tany", password: "bacon", password_confirmation: "bacon")
+alvin = User.create(name: "Alvin", password: "bacon", password_confirmation: "bacon")
+casey = User.create(name: "Casey", password: "bacon", password_confirmation: "bacon")
 
 quiche = Recipe.create(name: "Quiche", instructions: "Mix up eggs and cheese. Put it in a pie crust. Bake until slightly golden brown on top and perfectly delicious.", user: mia)
 pizza = Recipe.create(name: "Pizza", instructions: "Put some cheese and pineapple on that crust. Pepperoni or ham will work. Fire it up", user: piero)
