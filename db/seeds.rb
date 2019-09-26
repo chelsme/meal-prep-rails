@@ -11,13 +11,13 @@ Recipe.destroy_all
 User.destroy_all
 
 chels = User.create(name: "Chelsea", password: "apple", password_confirmation: "apple")
+artem = User.create(name: "Artem", password: "soccer", password_confirmation: "soccer")
 aime = User.create(name: "Aime", password: "kombucha", password_confirmation: "kombucha")
 mia = User.create(name: "Mia", password: "100", password_confirmation: "100")
 piero = User.create(name: "Piero", password: "spicy", password_confirmation: "spicy")
 allison = User.create(name: "Allison", password: "boba", password_confirmation: "boba")
 eddy = User.create(name: "Eddy", password: "mustard", password_confirmation: "mustard")
 devin = User.create(name: "Devin", password: "pecan", password_confirmation: "pecan")
-artem = User.create(name: "Artem", password: "soccer", password_confirmation: "soccer")
 rocky = User.create(name: "Rocketh", password: "bacon", password_confirmation: "bacon")
 
 quiche = Recipe.create(name: "Quiche", instructions: "Mix up eggs and cheese. Put it in a pie crust. Bake until slightly golden brown on top and perfectly delicious.", user: mia)
