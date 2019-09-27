@@ -38,7 +38,7 @@ class GroceriesController < ApplicationController
 
   private
   def grocery_params
-    params.require(:grocery).permit(:name, :password, :password_confirmation)
+    params.require(:grocery).permit(:name, :quantity, :shopping_list_id)
   end
 
   def find_grocery
