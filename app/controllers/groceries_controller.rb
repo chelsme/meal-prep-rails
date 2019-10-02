@@ -1,39 +1,44 @@
 class GroceriesController < ApplicationController
   def index
-    @groceries = Grocery.all
-    render json: @groceries
+    groceries = Grocery.all
+    render json: groceries
   end
 
   def show
-    @grocery = find_grocery
-    render json: @grocery
+    grocery = find_grocery
+    render json: grocery
   end
 
   def new
-    @grocery = Grocery.create(grocery_params)
-    render json: @grocery
+    grocery = Grocery.create(grocery_params)
+    render json: grocery
   end
 
   def create
-    @grocery = Grocery.create(grocery_params)
-    render json: @grocery
+    grocery = Grocery.new(grocery_params)
+    if grocery.valid?
+      grocery.save
+    else
+      puts grocery.errors.full_messages
+    end
+    render json: grocery
   end
   
   def edit
-    @grocery = find_grocery
-    @grocery.update(grocery_params)
-    render json: @grocery
+    grocery = find_grocery
+    grocery.update(grocery_params)
+    render json: grocery
   end
 
   def update
-    @grocery = find_grocery
-    @grocery.update(grocery_params)
-    render json: @grocery
+    grocery = find_grocery
+    grocery.update(grocery_params)
+    render json: grocery
   end
 
   def destroy
-    @grocery = find_grocery
-    @grocery.destroy
+    grocery = find_grocery
+    grocery.destroy
   end
 
   private
@@ -42,6 +47,6 @@ class GroceriesController < ApplicationController
   end
 
   def find_grocery
-    @grocery = Grocery.find_by_id(params[:id])
+    grocery = Grocery.find_by_id(params[:id])
   end
 end

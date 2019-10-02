@@ -1,39 +1,44 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
-    render json: @recipes, include: '**'
+    recipes = Recipe.all
+    render json: recipes, include: '**'
   end
 
   def show
-    @recipe = find_recipe
-    render json: @recipe, include: '**'
+    recipe = find_recipe
+    render json: recipe, include: '**'
   end
 
   def new
-    @recipe = Recipe.create(recipe_params)
-    render json: @recipe
+    recipe = Recipe.create(recipe_params)
+    render json: recipe
   end
 
   def create
-    @recipe = Recipe.create(recipe_params)
-    render json: @recipe
+    recipe = Recipe.new(recipe_params)
+    if recipe.valid?
+      recipe.save
+    else
+      puts recipe.errors.full_messages
+    end
+    render json: recipe
   end
   
   def edit
-    @recipe = find_recipe
-    @recipe.update(recipe_params)
-    render json: @recipe
+    recipe = find_recipe
+    recipe.update(recipe_params)
+    render json: recipe
   end
 
   def update
-    @recipe = find_recipe
-    @recipe.update(recipe_params)
-    render json: @recipe
+    recipe = find_recipe
+    recipe.update(recipe_params)
+    render json: recipe
   end
 
   def destroy
-    @recipe = find_recipe
-    @recipe.destroy
+    recipe = find_recipe
+    recipe.destroy
   end
 
   private
@@ -42,6 +47,6 @@ class RecipesController < ApplicationController
   end
 
   def find_recipe
-    @recipe = Recipe.find_by_id(params[:id])
+    recipe = Recipe.find_by_id(params[:id])
   end
 end
